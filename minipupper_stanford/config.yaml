@@ -1,0 +1,17 @@
+KeyName: aws-orchestrator
+tags:
+  Owner: aws-orchestrator
+  Environment: simple
+ingress:
+  - protocol: TCP
+    port: 22
+instances:
+  mini-pupper-stanford:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - https://github.com/hdumcke/mini_pupper_testig.git
+    build_scripts:
+      - ./mini_pupper_testig/v1_bsp_stanford_web_controller/setup_testing.sh
+    run_scripts:
+      - ./StanfordQuadruped/tests/run_all_tests.sh
