@@ -6,7 +6,7 @@ Install https://github.com/hdumcke/aws-orchestrator
 
 ## Workflow
 
-Each time you build a new firmware you have to update the version number by adding a tag to the https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git repository. The tag needs to be in the form of v<major>.<minor> Example:
+Each time you build a new firmware you have to update the version number by adding a tag to the https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git repository. The tag needs to be in the form of v&lt;major&gt;.&lt;minor&gt; Example:
 
 ```
 git tag v0.1
