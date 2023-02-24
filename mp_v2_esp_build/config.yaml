@@ -1,0 +1,15 @@
+KeyName: aws-orchestrator
+tags:
+  Owner: aws-orchestrator
+  Environment: simple
+ingress:
+  - protocol: TCP
+    port: 22
+instances:
+  mini-pupper-v2-build:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - https://github.com/hdumcke/aws-orchestrator-configurations.git
+    build_scripts:
+      - ./aws-orchestrator-configurations/mp_v2_esp_build/build.sh
