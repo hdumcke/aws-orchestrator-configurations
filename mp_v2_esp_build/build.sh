@@ -14,7 +14,7 @@ echo ". ~/esp/esp-idf/export.sh" >> ~/.bashrc
 source ~/esp/esp-idf/export.sh
 cd ~
 git clone https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git
-cd ~/mini_pupper_bsp/esp32
+cd ~/mini_pupper_2_bsp/esp32
 idf.py set-target esp32s3
 idf.py build
 cp build/mini_pupper_app.bin ~/
