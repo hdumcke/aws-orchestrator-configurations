@@ -1,0 +1,50 @@
+KeyName: aws-orchestrator
+tags:
+  Owner: aws-orchestrator
+  Environment: simple
+ingress:
+  - protocol: TCP
+    port: 22
+instances:
+  mp1-stanford:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - "https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp"
+      - https://github.com/mangdangroboticsclub/StanfordQuadruped.git
+      - https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
+    build_scripts:
+      - ./mini_pupper_web_controller/setup.sh v1
+    run_scripts:
+      - ./mini_pupper_web_controller/tests/run_all_tests.sh
+  mp2-stanford:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - "https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp"
+      - https://github.com/mangdangroboticsclub/StanfordQuadruped.git
+      - https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
+    build_scripts:
+      - ./mini_pupper_web_controller/setup.sh v2
+    run_scripts:
+      - ./mini_pupper_web_controller/tests/run_all_tests.sh
+  mp1-ros:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - "https://github.com/mangdangroboticsclub/mini_pupper_bsp.git ~/mini_pupper_bsp"
+      - https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git
+    build_scripts:
+      - ./mini_pupper_ros_bsp/setup.sh v1
+    run_scripts:
+      - ./mini_pupper_ros_bsp/tests/run_all_tests.sh
+  mp2-ros:
+    InstanceType: t2.micro
+    AMI_ID: ami-0493936afbe820b28
+    git_repos:
+      - "https://github.com/mangdangroboticsclub/mini_pupper_2_bsp.git ~/mini_pupper_bsp"
+      - https://github.com/mangdangroboticsclub/mini_pupper_ros_bsp.git
+    build_scripts:
+      - ./mini_pupper_ros_bsp/setup.sh v2
+    run_scripts:
+      - ./mini_pupper_ros_bsp/tests/run_all_tests.sh
